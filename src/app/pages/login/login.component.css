@@ -1,0 +1,46 @@
+/* Imagen de fondo para toda la página */
+.background {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-image: url('/assets/fondo.png'); /* Asegúrate de que la ruta sea correcta */
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     z-index: -1; /* Envía el fondo detrás del contenido */
+ }
+ 
+ /* Centra el contenedor del formulario */
+ .card-container {
+     display: flex;
+     justify-content: center; /* Centrar horizontalmente */
+     align-items: center; /* Centrar verticalmente */
+     min-height: 100vh;
+     position: relative;
+     z-index: 1; /* Asegura que el formulario esté al frente */
+     background: rgba(80, 78, 78, 0.575); /* Fondo blanco semitransparente para el formulario */
+     padding: 20px;
+     border-radius: 8px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+ }
+ 
+ /* Personalización del formulario */
+ .form-custom {
+     min-width: 150px;
+     width: 100%;
+ }
+ 
+ /* Estilos personalizados para el input */
+ .input-custom {
+     width: 100%;
+ }
+ 
+ /* Alineación de botones */
+ .flex {
+     display: flex;
+     justify-content: space-between;
+     margin-top: 15px;
+ }
+ 

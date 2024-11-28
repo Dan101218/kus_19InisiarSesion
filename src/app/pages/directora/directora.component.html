@@ -1,0 +1,49 @@
+<div class="mat-elevation-z2" style="width: 40%; padding: 30px; margin: 50px auto; display: flex; flex-direction: column; align-items: center;">
+    <form [formGroup]="formDirectora" style="width: 100%;">
+      <div class="flex">
+        <mat-form-field style="width: 100%;">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="nombre">
+        </mat-form-field>
+      </div>
+      <div class="flex">
+        <mat-form-field style="width: 100%;">
+          <mat-label>Año</mat-label>
+          <input matInput formControlName="anio">
+        </mat-form-field>
+      </div>
+      <div class="flex">
+        <mat-form-field style="width: 100%;">
+          <mat-label>Desempeño</mat-label>
+          <input matInput formControlName="desempenio">
+        </mat-form-field>
+      </div>
+      <div class="flex">
+        <mat-form-field style="width: 100%;">
+          <mat-label>Línea</mat-label>
+          <input matInput formControlName="linea">
+        </mat-form-field>
+      </div>
+  
+      <div class="flex" style="margin-top: 20px;">
+        <button mat-flat-button color="primary" (click)="guardar()">Guardar</button>
+        <button mat-flat-button color="warn" (click)="volver()" style="margin-left: 8px;">Volver</button>
+      </div>
+    </form>
+  
+    <!-- Sección para carga de archivos -->
+    <div style="width: 100%; margin-top: 30px;">
+      <label for="file-upload" class="file-upload-label">Seleccionar archivo:</label>
+      <input type="file" id="file-upload" (change)="handleFileInput($event)" style="margin-top: 10px;">
+      
+      <div *ngIf="uploadProgress > 0" style="margin-top: 20px;">
+        <mat-progress-bar [value]="uploadProgress" mode="determinate"></mat-progress-bar>
+        <p style="text-align: center; margin-top: 10px;">Progreso: {{ uploadProgress }}%</p>
+      </div>
+  
+      <button mat-flat-button color="accent" (click)="subirArchivo()" style="margin-top: 20px;" [disabled]="!fileToUpload">
+        Subir Archivo
+      </button>
+    </div>
+  </div>
+  

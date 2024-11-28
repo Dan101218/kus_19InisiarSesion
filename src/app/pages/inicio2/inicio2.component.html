@@ -1,0 +1,89 @@
+<div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo-container">
+        <img src="assets/upeu.png" alt="Logo" class="logo">
+      </div>
+      <nav class="menu">
+        <button mat-button routerLink="/inicio">Inicio</button>
+        <button mat-button routerLink="/control">Informe de practicas</button>
+        <button mat-button routerLink="/configuracion">Configuración</button>
+        <button mat-button routerLink="/cerrar-sesion">Cerrar Sesión</button>
+      </nav>
+    </aside>
+  
+    <!-- Main content -->
+    <main class="content">
+      <mat-card style="width: 100%; margin: 20px auto; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <!-- Encabezado -->
+        <mat-card-header class="card-header">
+          <mat-card-title>
+            <p>INFORME PRÁCTICAS PRE PROFESIONALES</p>
+          </mat-card-title>
+        </mat-card-header>
+        
+        <!-- Contenido del card -->
+        <mat-card-content>
+          <div style="display: flex; align-items: center; padding: 10px;">
+            <button mat-flat-button color="primary" (click)="nuevo()" style="margin-right: 10px;">
+              Nuevo 
+            </button>
+            <mat-form-field style="flex-grow: 1;">
+              <mat-label>Buscar</mat-label>
+              <input matInput [(ngModel)]="searchTerm" (input)="filterDirectoras()" placeholder="Buscar">
+            </mat-form-field>
+            <button mat-icon-button color="primary" (click)="filterDirectoras()" aria-label="Buscar">
+              <mat-icon>search</mat-icon>
+            </button>
+          </div>
+  
+          <!-- Tabla de empleados -->
+          <div style="border-radius: 15px; overflow: hidden;">
+            <table mat-table [dataSource]="filteredDirectora" class="mat-elevation-z2" style="width: 100%;">
+              
+              <!-- Nombre Column -->
+              <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+              </ng-container>
+            
+              <!-- Año Column -->
+              <ng-container matColumnDef="anio">
+                <th mat-header-cell *matHeaderCellDef>Año</th>
+                <td mat-cell *matCellDef="let element">{{ element.anio }}</td>
+              </ng-container>
+            
+              <!-- Horas Acumuladas Column -->
+              <ng-container matColumnDef="desempeño">
+                <th mat-header-cell *matHeaderCellDef>Desempeño</th>
+                <td mat-cell *matCellDef="let element">{{ element.desempenio }}</td>
+              </ng-container>
+            
+              <!-- Lugar Column -->
+              <ng-container matColumnDef="linea">
+                <th mat-header-cell *matHeaderCellDef>Linea</th>
+                <td mat-cell *matCellDef="let element">{{ element.linea }}</td>
+              </ng-container>
+  
+              <!-- Acciones Column -->
+              <ng-container matColumnDef="accion">
+                <th mat-header-cell *matHeaderCellDef style="width: 100px;">Acciones</th>
+                <td mat-cell *matCellDef="let element" style="display: flex; justify-content: center;">
+                  <button mat-icon-button color="primary" (click)="editar(element)">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                  <button mat-icon-button color="warn" (click)="eliminar(element)">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </td>
+              </ng-container>
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </main>
+  </div>
+  

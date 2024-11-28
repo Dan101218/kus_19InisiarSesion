@@ -1,0 +1,17 @@
+
+
+<!-- El diálogo de PrimeNG -->
+<p-dialog [(visible)]="display" [closable]="false" [modal]="true" [style]="{width: '50vw'}">
+    <app-login></app-login>
+    <app-inicio1></app-inicio1>
+    <app-empleado></app-empleado>
+    <app-inicio2></app-inicio2>
+    <app-directora></app-directora>
+    <app-inicio3></app-inicio3>
+    <app-coordinador></app-coordinador>
+
+    <!-- Botón para cerrar el diálogo -->
+    <button (click)="showDialog()">Cerrar</button>
+</p-dialog>
+
+

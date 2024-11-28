@@ -1,0 +1,33 @@
+<div class="mat-elevation-z2" style="width: 30%; padding: 30px; margin: 50px auto; display: flex; justify-content: center;">
+    <form [formGroup]="formEmpleado">
+        <div class="flex">
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="nombre">
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-form-field>
+                <mat-label>Año</mat-label>
+                <input matInput formControlName="anio">
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-form-field>
+                <mat-label>Horas Acumuladas</mat-label>
+                <input matInput type="number" formControlName="horasacumuladas">
+            </mat-form-field>
+        </div>
+        <div class="flex">
+            <mat-form-field>
+                <mat-label>Lugar</mat-label>
+                <input matInput formControlName="lugar">
+            </mat-form-field>
+        </div>
+
+        <div class="flex">
+            <button mat-flat-button color="primary" (click)="guardar()">Guardar</button>
+            <button mat-flat-button color="warn" (click)="volver()" style="margin-left: 8px;">Volver</button>
+        </div>
+    </form>
+</div>

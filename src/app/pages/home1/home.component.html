@@ -1,0 +1,11 @@
+<section class="fondo">
+  <section>
+    <app-header [nombre]="nombre"></app-header>
+  </section>
+  <section class="container-sidebar" [ngClass]="{'container-sidebar-short': !status, 'container-sidebar-large':status}">
+    <app-sidebar></app-sidebar>
+  </section>
+  <section class="main" [ngClass]="{'main1': !status, 'main2':status}">
+    <router-outlet></router-outlet>
+  </section>
+</section>
